@@ -9,10 +9,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Material App',
-      home: HomeConEstado(),
+      home: HomePage(),
     );
   }
 }
+
+String nombre = "Richar";
 
 /// Es widget sin estado -> estático -> no cambia
 class HomePage extends StatelessWidget {
@@ -20,12 +22,21 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("BUILD STATELESS");
     return Scaffold(
       /// AppBar es un widget de flutter
       appBar: AppBar(
         /// Title del widget app bar
         title: const Text("Mi widget stateless"),
       ),
+      body: const HomeConEstado(),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //       nombre = "Nuevo Nombre";
+      //       // setState((){});
+      //   },
+      //   child: const Icon(Icons.replay_outlined),
+      // ),
     );
   }
 }
@@ -50,6 +61,7 @@ class _HomeConEstadoState extends State<HomeConEstado> {
 
   @override
   Widget build(BuildContext context) {
+    print("BUILD STATEFUL");
     return Scaffold(
       appBar: AppBar(
         title: const Text("Mi widget stateful"),
